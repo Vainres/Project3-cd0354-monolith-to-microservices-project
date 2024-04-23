@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: udagram-reverseproxy
-          image: "vainres/udagram-reverseproxy:v2"
+          image: "vainres/udagram-reverseproxy:v3"
           ports:
             - containerPort: 80
           imagePullPolicy: Always
