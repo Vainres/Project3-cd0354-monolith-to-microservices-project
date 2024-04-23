@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-configmap
+data:
+  POSTGRES_USERNAME: "postgres"
+  POSTGRES_PASSWORD: "lonton123"
+  POSTGRES_HOST: "project3.csdqupizvdmz.us-east-1.rds.amazonaws.com"
+  POSTGRES_DB: "postgres"
+  AWS_BUCKET: 'thirdprojectaws'
+  AWS_REGION: "us-east-1"
+  AWS_PROFILE: "udacity3"
+  JWT_SECRET: "testing"

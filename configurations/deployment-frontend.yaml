@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: udagram-api-user
+  name: udagram-frontend
   labels:
-    app: udagram-api-user
+    app: udagram-frontend
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: udagram-api-user
+      app: udagram-frontend
   template:
     metadata:
       labels:
-        app: udagram-api-user
+        app: udagram-frontend
     spec:
       containers:
-        - name: udagram-api-user
-          image: "juniornguyen/udagram-api-user:v1"
+        - name: udagram-frontend
+          image: "vainres/udagram-frontend:v1"
           ports:
-            - containerPort: 8080
+            - containerPort: 80
           imagePullPolicy: Always
           resources:
             requests:
@@ -27,11 +27,11 @@ spec:
               cpu: 500m
           envFrom:
             - secretRef:
-                name: postgres-secret
+                name: env-secret
             - secretRef:
                 name: aws-secret
             - configMapRef:
-                name: udagram-config-map
+                name: env-configmap
           volumeMounts:
             - mountPath: "/root/.aws/"
               name: aws-secret

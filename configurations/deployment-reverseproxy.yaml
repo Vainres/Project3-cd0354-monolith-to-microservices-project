@@ -16,21 +16,14 @@ spec:
     spec:
       containers:
         - name: udagram-reverseproxy
-          image: "juniornguyen/udagram-reverseproxy:v1"
+          image: "vainres/udagram-reverseproxy:v1"
           ports:
             - containerPort: 80
           imagePullPolicy: Always
-          resources:
-            requests:
-              memory: "64Mi"
-              cpu: "250m"
-            limits:
-              memory: "1024Mi"
-              cpu: "500m"
           envFrom:
             - secretRef:
-                name: postgres-secret
+                name: env-secret
             - secretRef:
                 name: aws-secret
             - configMapRef:
-                name: udagram-config-map
+                name: env-configmap
